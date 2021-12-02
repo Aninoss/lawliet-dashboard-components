@@ -1,9 +1,6 @@
 package dashboard.container;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import dashboard.ActionReceivable;
 import dashboard.ActionResult;
 import dashboard.ActionSendable;
@@ -56,7 +53,7 @@ public abstract class DashboardContainer extends DashboardComponent implements A
     }
 
     public void add(DashboardComponent... elements) {
-        add(List.of(elements));
+        add(Arrays.asList(elements));
     }
 
     public void add(Collection<DashboardComponent> elements) {
@@ -71,7 +68,7 @@ public abstract class DashboardContainer extends DashboardComponent implements A
     }
 
     public void remove(DashboardComponent... elements) {
-        remove(List.of(elements));
+        remove(Arrays.asList(elements));
     }
 
     public void remove(Collection<DashboardComponent> elements) {
