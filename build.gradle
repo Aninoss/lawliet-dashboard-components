@@ -10,15 +10,16 @@ targetCompatibility = 8
 
 repositories {
     mavenCentral()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
     implementation 'org.json:json:20210307'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    implementation 'org.slf4j:slf4j-api:1.7.32'
 }
 
-test {
-    useJUnitPlatform()
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
