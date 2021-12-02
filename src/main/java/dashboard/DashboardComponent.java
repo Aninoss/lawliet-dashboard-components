@@ -90,22 +90,49 @@ public abstract class DashboardComponent {
 
     public static DashboardComponent generate(JSONObject json) {
         int type = json.getInt("type");
-        return switch (type) {
-            case HorizontalContainer.TYPE -> new HorizontalContainer(json);
-            case VerticalContainer.TYPE -> new VerticalContainer(json);
-            case DashboardButton.TYPE -> new DashboardButton(json);
-            case DashboardSelectionMenu.TYPE -> new DashboardSelectionMenu(json);
-            case DashboardSeparator.TYPE -> new DashboardSeparator(json);
-            case DashboardText.TYPE -> new DashboardText(json);
-            case HorizontalPusher.TYPE -> new HorizontalPusher(json);
-            case DashboardImage.TYPE -> new DashboardImage(json);
-            case DashboardImageUpload.TYPE -> new DashboardImageUpload(json);
-            case DashboardSwitch.TYPE -> new DashboardSwitch(json);
-            case DashboardTextFieldString.TYPE -> new DashboardTextFieldString(json);
-            case DashboardTextFieldDouble.TYPE -> new DashboardTextFieldDouble(json);
-            case DashboardTextFieldInt.TYPE -> new DashboardTextFieldInt(json);
-            default -> null;
-        };
+        switch (type) {
+            case HorizontalContainer.TYPE:
+                return new HorizontalContainer(json);
+
+            case VerticalContainer.TYPE:
+                return new VerticalContainer(json);
+
+            case DashboardButton.TYPE:
+                return new DashboardButton(json);
+                
+            case DashboardSelectionMenu.TYPE:
+                return new DashboardSelectionMenu(json);
+                
+            case DashboardSeparator.TYPE:
+                return new DashboardSeparator(json);
+                
+            case DashboardText.TYPE:
+                return new DashboardText(json);
+                
+            case HorizontalPusher.TYPE:
+                return new HorizontalPusher(json);
+                
+            case DashboardImage.TYPE:
+                return new DashboardImage(json);
+                
+            case DashboardImageUpload.TYPE:
+                return new DashboardImageUpload(json);
+                
+            case DashboardSwitch.TYPE:
+                return new DashboardSwitch(json);
+                
+            case DashboardTextFieldString.TYPE:
+                return new DashboardTextFieldString(json);
+                
+            case DashboardTextFieldDouble.TYPE:
+                return new DashboardTextFieldDouble(json);
+                
+            case DashboardTextFieldInt.TYPE:
+                return new DashboardTextFieldInt(json);
+                
+            default:
+                return null;
+        }
     }
 
 }
