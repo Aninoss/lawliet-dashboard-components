@@ -23,6 +23,10 @@ public class DashboardText extends DashboardComponent {
         style = Style.values()[json.getInt("style")];
     }
 
+    public String getText() {
+        return text;
+    }
+
     public Style getStyle() {
         return style;
     }
