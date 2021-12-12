@@ -19,6 +19,7 @@ public class HorizontalContainer extends DashboardContainer {
     public HorizontalContainer(JSONObject json) {
         super(json);
         alignment = Alignment.values()[json.getInt("alignment")];
+        allowWrap = json.getBoolean("allow_wrap");
     }
 
     public Alignment getAlignment() {
@@ -41,6 +42,7 @@ public class HorizontalContainer extends DashboardContainer {
     public JSONObject toJSON() {
         JSONObject json = super.toJSON();
         json.put("alignment", alignment.ordinal());
+        json.put("allow_wrap", allowWrap);
         return json;
     }
 
