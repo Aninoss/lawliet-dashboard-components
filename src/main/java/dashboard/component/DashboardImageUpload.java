@@ -29,8 +29,8 @@ public class DashboardImageUpload extends ActionComponent<String> {
     }
 
     @Override
-    public void trigger(String url) {
-        super.trigger(url);
+    public void trigger(String filename) {
+        super.trigger(filename);
     }
 
     @Override

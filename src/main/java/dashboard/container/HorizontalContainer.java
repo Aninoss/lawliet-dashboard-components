@@ -10,6 +10,7 @@ public class HorizontalContainer extends DashboardContainer {
     public enum Alignment { TOP, CENTER, BOTTOM }
 
     private Alignment alignment = Alignment.TOP;
+    private boolean allowWrap = false;
 
     public HorizontalContainer(DashboardComponent... children) {
         super(TYPE, children);
@@ -26,6 +27,14 @@ public class HorizontalContainer extends DashboardContainer {
 
     public void setAlignment(Alignment alignment) {
         this.alignment = alignment;
+    }
+
+    public boolean getAllowWrap() {
+        return allowWrap;
+    }
+
+    public void setAllowWrap(boolean allowWrap) {
+        this.allowWrap = allowWrap;
     }
 
     @Override
