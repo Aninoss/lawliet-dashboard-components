@@ -6,6 +6,7 @@ import org.json.JSONObject;
 public class DashboardNumberField extends DashboardTextFieldAbstract<Long> {
 
     public static final int TYPE = 12;
+    private long value = 0L;
 
     public DashboardNumberField(String label, int min, int max, DashboardEventListener<Long> actionListener) {
         super(TYPE, label, min, max);
@@ -18,6 +19,22 @@ public class DashboardNumberField extends DashboardTextFieldAbstract<Long> {
 
     public DashboardNumberField(JSONObject json) {
         super(json);
+        value = json.getLong("value");
+    }
+
+    @Override
+    public JSONObject toJSON() {
+        JSONObject json = super.toJSON();
+        json.put("value", value);
+        return json;
+    }
+
+    public long getValue() {
+        return value;
+    }
+
+    public void setValue(long value) {
+        this.value = value;
     }
 
 }
