@@ -99,37 +99,40 @@ public abstract class DashboardComponent {
 
             case DashboardButton.TYPE:
                 return new DashboardButton(json);
-                
+
             case DashboardSelectionMenu.TYPE:
                 return new DashboardSelectionMenu(json);
-                
+
             case DashboardSeparator.TYPE:
                 return new DashboardSeparator(json);
-                
+
             case DashboardText.TYPE:
                 return new DashboardText(json);
-                
+
+            case DashboardTitle.TYPE:
+                return new DashboardTitle(json);
+
             case HorizontalPusher.TYPE:
                 return new HorizontalPusher(json);
-                
+
             case DashboardImage.TYPE:
                 return new DashboardImage(json);
-                
+
             case DashboardImageUpload.TYPE:
                 return new DashboardImageUpload(json);
-                
+
             case DashboardSwitch.TYPE:
                 return new DashboardSwitch(json);
-                
-            case DashboardTextFieldString.TYPE:
-                return new DashboardTextFieldString(json);
-                
-            case DashboardTextFieldDouble.TYPE:
-                return new DashboardTextFieldDouble(json);
-                
-            case DashboardTextFieldInt.TYPE:
-                return new DashboardTextFieldInt(json);
-                
+
+            case DashboardTextField.TYPE:
+                return new DashboardTextField(json);
+
+            case DashboardMultiLineTextField.TYPE:
+                return new DashboardMultiLineTextField(json);
+
+            case DashboardNumberField.TYPE:
+                return new DashboardNumberField(json);
+
             default:
                 return null;
         }

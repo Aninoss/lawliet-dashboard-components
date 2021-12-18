@@ -3,18 +3,18 @@ package dashboard.component;
 import dashboard.DashboardComponent;
 import org.json.JSONObject;
 
-public class DashboardText extends DashboardComponent {
+public class DashboardTitle extends DashboardComponent {
 
-    public static final int TYPE = 5;
+    public static final int TYPE = 13;
 
     private final String text;
 
-    public DashboardText(String text) {
+    public DashboardTitle(String text) {
         super(TYPE);
         this.text = text;
     }
 
-    public DashboardText(JSONObject json) {
+    public DashboardTitle(JSONObject json) {
         super(json);
         text = json.getString("text");
     }
