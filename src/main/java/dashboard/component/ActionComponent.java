@@ -25,6 +25,9 @@ public abstract class ActionComponent<T> extends DashboardComponent implements A
     public ActionComponent(JSONObject json) {
         super(json);
         enabled = json.getBoolean("enabled");
+        if (json.has("confirmation_message") && !json.isNull("confirmation_message")) {
+            confirmationMessage = json.getString("confirmation_message");
+        }
     }
 
     public void setActionListener(DashboardEventListener<T> actionListener) {
@@ -84,6 +87,7 @@ public abstract class ActionComponent<T> extends DashboardComponent implements A
     public JSONObject toJSON() {
         JSONObject json = super.toJSON();
         json.put("enabled", enabled);
+        json.put("confirmation_message", confirmationMessage);
         return json;
     }
 
