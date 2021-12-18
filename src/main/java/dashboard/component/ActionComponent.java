@@ -16,6 +16,7 @@ public abstract class ActionComponent<T> extends DashboardComponent implements A
 
     private DashboardEventListener<T> actionListener = null;
     private boolean enabled = true;
+    private String confirmationMessage = null;
 
     public ActionComponent(int type) {
         super(type);
@@ -49,7 +50,7 @@ public abstract class ActionComponent<T> extends DashboardComponent implements A
             action.put("id", getId());
             action.put("type", type);
             action.put("data", data);
-            parent.sendAction(action);
+            parent.sendAction(action, confirmationMessage);
         }
     }
 
@@ -84,6 +85,10 @@ public abstract class ActionComponent<T> extends DashboardComponent implements A
         JSONObject json = super.toJSON();
         json.put("enabled", enabled);
         return json;
+    }
+
+    public void enableConfirmationMessage(String confirmationMessage) {
+        this.confirmationMessage = confirmationMessage;
     }
 
 }

@@ -85,7 +85,7 @@ public abstract class DashboardContainer extends DashboardComponent implements A
     }
 
     @Override
-    public void sendAction(JSONObject action) {
+    public void sendAction(JSONObject action, String confirmationMessage) {
         DashboardContainer parent = getParent();
         JSONObject newAction = new JSONObject();
         newAction.put("id", getId());
@@ -93,13 +93,13 @@ public abstract class DashboardContainer extends DashboardComponent implements A
 
         if (actionSendListener != null) {
             try {
-                actionSendListener.accept(newAction);
+                actionSendListener.accept(newAction, confirmationMessage);
             } catch (Throwable e) {
                 LOGGER.error("Error in action send listener", e);
             }
         }
         if (parent != null) {
-            parent.sendAction(newAction);
+            parent.sendAction(newAction, confirmationMessage);
         }
     }
 

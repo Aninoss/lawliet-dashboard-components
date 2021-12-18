@@ -4,6 +4,6 @@ import org.json.JSONObject;
 
 public interface ActionSendListener {
 
-    void accept(JSONObject json) throws Throwable;
+    void accept(JSONObject action, String confirmationMessage) throws Throwable;
 
 }
