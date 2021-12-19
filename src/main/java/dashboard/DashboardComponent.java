@@ -100,17 +100,14 @@ public abstract class DashboardComponent {
             case DashboardButton.TYPE:
                 return new DashboardButton(json);
 
-            case DashboardSelectionMenu.TYPE:
-                return new DashboardSelectionMenu(json);
+            case DashboardDiscordEntitySelection.TYPE:
+                return new DashboardDiscordEntitySelection(json);
 
             case DashboardSeparator.TYPE:
                 return new DashboardSeparator(json);
 
             case DashboardText.TYPE:
                 return new DashboardText(json);
-
-            case DashboardTitle.TYPE:
-                return new DashboardTitle(json);
 
             case HorizontalPusher.TYPE:
                 return new HorizontalPusher(json);
@@ -132,6 +129,12 @@ public abstract class DashboardComponent {
 
             case DashboardNumberField.TYPE:
                 return new DashboardNumberField(json);
+
+            case DashboardTitle.TYPE:
+                return new DashboardTitle(json);
+
+            case DashboardCustomSelection.TYPE:
+                return new DashboardCustomSelection(json);
 
             default:
                 return null;
