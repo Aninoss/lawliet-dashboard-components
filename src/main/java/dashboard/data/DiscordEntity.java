@@ -1,5 +1,7 @@
 package dashboard.data;
 
+import java.util.Objects;
+
 public class DiscordEntity {
 
     private final long id;
@@ -16,6 +18,19 @@ public class DiscordEntity {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DiscordEntity)) return false;
+        DiscordEntity that = (DiscordEntity) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
 }

@@ -16,20 +16,20 @@ public class DashboardDiscordEntitySelection extends ActionComponent<Long> {
 
     private final String label;
     private final DataType dataType;
-    private final int min;
+    private final boolean canBeEmpty;
     private final int max;
     private List<DiscordEntity> selectedData = Collections.emptyList();
 
-    public DashboardDiscordEntitySelection(String label, DataType dataType, int min, int max, DashboardEventListener<Long> actionListener) {
-        this(label, dataType, min, max);
+    public DashboardDiscordEntitySelection(String label, DataType dataType, boolean canBeEmpty, int max, DashboardEventListener<Long> actionListener) {
+        this(label, dataType, canBeEmpty, max);
         setActionListener(actionListener);
     }
 
-    public DashboardDiscordEntitySelection(String label, DataType dataType, int min, int max) {
+    public DashboardDiscordEntitySelection(String label, DataType dataType, boolean canBeEmpty, int max) {
         super(TYPE);
         this.label = label;
         this.dataType = dataType;
-        this.min = min;
+        this.canBeEmpty = canBeEmpty;
         this.max = max;
     }
 
@@ -37,7 +37,7 @@ public class DashboardDiscordEntitySelection extends ActionComponent<Long> {
         super(json);
         label = json.getString("label");
         dataType = DataType.values()[json.getInt("data_type")];
-        min = json.getInt("min");
+        canBeEmpty = json.getBoolean("can_be_empty");
         max = json.getInt("max");
 
         ArrayList<DiscordEntity> newSelectedData = new ArrayList<>();
@@ -58,8 +58,8 @@ public class DashboardDiscordEntitySelection extends ActionComponent<Long> {
         return dataType;
     }
 
-    public int getMin() {
-        return min;
+    public boolean canBeEmpty() {
+        return canBeEmpty;
     }
 
     public int getMax() {
@@ -91,7 +91,7 @@ public class DashboardDiscordEntitySelection extends ActionComponent<Long> {
         JSONObject json = super.toJSON();
         json.put("label", label);
         json.put("data_type", dataType.ordinal());
-        json.put("min", min);
+        json.put("can_be_empty", canBeEmpty);
         json.put("max", max);
 
         JSONArray selectedDataJson = new JSONArray();

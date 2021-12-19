@@ -12,7 +12,6 @@ public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
     private final int min;
     private final int max;
     private String placeholder = "";
-    private boolean multiLine = false;
 
     public DashboardTextFieldAbstract(int type, String label, int min, int max) {
         super(type);
@@ -27,7 +26,6 @@ public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
         min = json.getInt("min");
         max = json.getInt("max");
         placeholder = json.getString("placeholder");
-        multiLine = json.getBoolean("multi_line");
     }
 
     public String getLabel() {
@@ -50,14 +48,6 @@ public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
         this.placeholder = placeholder;
     }
 
-    public boolean isMultiLine() {
-        return multiLine;
-    }
-
-    public void setMultiLine(boolean multiLine) {
-        this.multiLine = multiLine;
-    }
-
     @Override
     public void trigger(T value) {
         super.trigger(value);
@@ -70,7 +60,6 @@ public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
         json.put("min", min);
         json.put("max", max);
         json.put("placeholder", placeholder);
-        json.put("multi_line", multiLine);
         return json;
     }
 
