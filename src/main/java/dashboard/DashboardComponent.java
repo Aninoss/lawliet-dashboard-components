@@ -100,8 +100,8 @@ public abstract class DashboardComponent {
             case DashboardButton.TYPE:
                 return new DashboardButton(json);
 
-            case DashboardDiscordEntitySelection.TYPE:
-                return new DashboardDiscordEntitySelection(json);
+            case DashboardComboBox.TYPE:
+                return new DashboardComboBox(json);
 
             case DashboardSeparator.TYPE:
                 return new DashboardSeparator(json);
@@ -133,8 +133,14 @@ public abstract class DashboardComponent {
             case DashboardTitle.TYPE:
                 return new DashboardTitle(json);
 
-            case DashboardCustomSelection.TYPE:
-                return new DashboardCustomSelection(json);
+            case DashboardSelect.TYPE:
+                return new DashboardSelect(json);
+
+            case DashboardDurationField.TYPE:
+                return new DashboardDurationField(json);
+
+            case DashboardGrid.TYPE:
+                return new DashboardGrid(json);
 
             default:
                 return null;

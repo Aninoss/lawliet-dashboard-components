@@ -1,12 +1,8 @@
 package dashboard.component;
 
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
-
-    private final static Logger LOGGER = LoggerFactory.getLogger(DashboardTextFieldAbstract.class);
 
     private final String label;
     private final int min;
