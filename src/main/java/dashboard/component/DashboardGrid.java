@@ -43,7 +43,13 @@ public class DashboardGrid extends ActionComponent<String> {
         rows = Collections.unmodifiableList(newRows);
     }
 
+    public String[] getHeader() {
+        return header;
+    }
 
+    public List<GridRow> getRows() {
+        return rows;
+    }
 
     public void triggerEdit(String rowId) {
         trigger("edit", rowId);

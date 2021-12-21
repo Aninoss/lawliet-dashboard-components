@@ -6,25 +6,29 @@ import org.json.JSONObject;
 
 public class GridRow {
 
-    private final String rowId;
+    private final String id;
     private final String[] rowValues;
 
-    public GridRow(String rowId, String[] rowValues) {
-        this.rowId = rowId;
+    public GridRow(String id, String[] rowValues) {
+        this.id = id;
         this.rowValues = rowValues;
     }
 
-    public String getRowId() {
-        return rowId;
+    public String getId() {
+        return id;
     }
 
     public String[] getRowValues() {
         return rowValues;
     }
 
+    public String getRowValue(int i) {
+        return rowValues[i];
+    }
+
     public JSONObject toJson() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("id", rowId);
+        jsonObject.put("id", id);
 
         JSONArray valuesJson = new JSONArray();
         for (String rowValue : rowValues) {
@@ -40,12 +44,12 @@ public class GridRow {
         if (this == o) return true;
         if (!(o instanceof GridRow)) return false;
         GridRow gridRow = (GridRow) o;
-        return rowId.equals(gridRow.rowId);
+        return id.equals(gridRow.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(rowId);
+        return Objects.hash(id);
     }
 
     public static GridRow fromJson(JSONObject jsonObject) {
