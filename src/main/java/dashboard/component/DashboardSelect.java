@@ -68,7 +68,7 @@ public class DashboardSelect extends ActionComponent<String> {
         this.selectedValue = selectedValue;
     }
 
-    public void triggerSet(String entityId) {
+    public void trigger(String entityId) {
         trigger("set", entityId);
     }
 
@@ -77,14 +77,14 @@ public class DashboardSelect extends ActionComponent<String> {
         JSONObject json = super.toJSON();
         json.put("label", label);
         json.put("can_be_empty", canBeEmpty);
-        json.put("selected_value", selectedValue.toJson());
-
+        if (selectedValue != null) {
+            json.put("selected_value", selectedValue.toJson());
+        }
         if (values != null) {
             JSONArray valuesJson = new JSONArray();
             values.forEach(discordEntity -> valuesJson.put(discordEntity.toJson()));
             json.put("values", valuesJson);
         }
-
         return json;
     }
 
