@@ -34,7 +34,7 @@ public class DashboardGrid extends ActionComponent<String> {
             header[i] = headerJson.getString(i);
         }
 
-        JSONArray rowsJson = new JSONArray("rows");
+        JSONArray rowsJson = json.getJSONArray("rows");
         ArrayList<GridRow> newRows = new ArrayList<>();
         for (int i = 0; i < rowsJson.length(); i++) {
             JSONObject rowJson = rowsJson.getJSONObject(i);
