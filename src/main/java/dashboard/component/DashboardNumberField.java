@@ -8,12 +8,12 @@ public class DashboardNumberField extends DashboardTextFieldAbstract<Long> {
     public static final int TYPE = 12;
     private long value = 0L;
 
-    public DashboardNumberField(String label, int min, int max, DashboardEventListener<Long> actionListener) {
+    public DashboardNumberField(String label, long min, long max, DashboardEventListener<Long> actionListener) {
         super(TYPE, label, min, max);
         setActionListener(actionListener);
     }
 
-    public DashboardNumberField(String label, int min, int max) {
+    public DashboardNumberField(String label, long min, long max) {
         super(TYPE, label, min, max);
     }
 
