@@ -5,11 +5,11 @@ import org.json.JSONObject;
 public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
 
     private final String label;
-    private final int min;
-    private final int max;
+    private final long min;
+    private final long max;
     private String placeholder = "";
 
-    public DashboardTextFieldAbstract(int type, String label, int min, int max) {
+    public DashboardTextFieldAbstract(int type, String label, long min, long max) {
         super(type);
         this.label = label;
         this.min = min;
@@ -19,8 +19,8 @@ public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
     public DashboardTextFieldAbstract(JSONObject json) {
         super(json);
         label = json.getString("label");
-        min = json.getInt("min");
-        max = json.getInt("max");
+        min = json.getLong("min");
+        max = json.getLong("max");
         placeholder = json.getString("placeholder");
     }
 
@@ -28,11 +28,11 @@ public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
         return label;
     }
 
-    public int getMin() {
+    public long getMin() {
         return min;
     }
 
-    public int getMax() {
+    public long getMax() {
         return max;
     }
 
