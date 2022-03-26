@@ -14,8 +14,7 @@ public class DashboardGrid extends ActionComponent<String> {
 
     private final String[] header;
     private final List<GridRow> rows;
-    private boolean withEditButton = false;
-    private boolean withAddButton = false;
+    private String rowButton = "";
 
     public DashboardGrid(String[] header, List<GridRow> rows, DashboardEventListener<String> actionListener) {
         this(header, rows);
@@ -43,9 +42,7 @@ public class DashboardGrid extends ActionComponent<String> {
             newRows.add(GridRow.fromJson(rowJson));
         }
         rows = Collections.unmodifiableList(newRows);
-
-        withEditButton = json.getBoolean("edit_button");
-        withAddButton = json.getBoolean("add_button");
+        rowButton = json.getString("row_button");
     }
 
     public String[] getHeader() {
@@ -56,22 +53,13 @@ public class DashboardGrid extends ActionComponent<String> {
         return rows;
     }
 
-    public boolean isWithEditButton() {
-        return withEditButton;
-    }
-
-    public DashboardGrid setWithEditButton(boolean withEditButton) {
-        this.withEditButton = withEditButton;
+    public DashboardGrid setRowButton(String rowButton) {
+        this.rowButton = rowButton;
         return this;
     }
 
-    public boolean isWithAddButton() {
-        return withAddButton;
-    }
-
-    public DashboardGrid setWithAddButton(boolean withAddButton) {
-        this.withAddButton = withAddButton;
-        return this;
+    public String getRowButton() {
+        return rowButton;
     }
 
     public void triggerEdit(String rowId) {
@@ -97,9 +85,7 @@ public class DashboardGrid extends ActionComponent<String> {
             rowsJson.put(row.toJson());
         }
         json.put("rows", rowsJson);
-
-        json.put("edit_button", withEditButton);
-        json.put("add_button", withAddButton);
+        json.put("row_button", rowButton);
         return json;
     }
 
