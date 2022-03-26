@@ -62,12 +62,8 @@ public class DashboardGrid extends ActionComponent<String> {
         return rowButton;
     }
 
-    public void triggerEdit(String rowId) {
-        trigger("edit", rowId);
-    }
-
-    public void triggerAdd() {
-        trigger("add", null);
+    public void triggerRow(String rowId) {
+        trigger(rowId);
     }
 
     @Override
