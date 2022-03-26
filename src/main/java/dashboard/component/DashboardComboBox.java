@@ -12,7 +12,7 @@ public class DashboardComboBox extends ActionComponent<String> {
 
     public static final int TYPE = 3;
 
-    public enum DataType { TEXT_CHANNELS, BASE_GUILD_MESSAGE_CHANNELS, MEMBERS, ROLES, CUSTOM }
+    public enum DataType { TEXT_CHANNELS, BASE_GUILD_MESSAGE_CHANNELS, VOICE_CHANNELS, MEMBERS, ROLES, CUSTOM }
 
     private final String label;
     private final DataType dataType;
