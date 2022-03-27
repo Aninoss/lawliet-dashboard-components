@@ -8,6 +8,7 @@ public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
     private final long min;
     private final long max;
     private String placeholder = "";
+    private boolean editButton = true;
 
     public DashboardTextFieldAbstract(int type, String label, long min, long max) {
         super(type);
@@ -22,6 +23,7 @@ public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
         min = json.getLong("min");
         max = json.getLong("max");
         placeholder = json.getString("placeholder");
+        editButton = json.getBoolean("edit_button");
     }
 
     public String getLabel() {
@@ -44,6 +46,14 @@ public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
         this.placeholder = placeholder;
     }
 
+    public boolean getEditButton() {
+        return editButton;
+    }
+
+    public void setEditButton(boolean editButton) {
+        this.editButton = editButton;
+    }
+
     @Override
     public void trigger(T value) {
         super.trigger(value);
@@ -56,6 +66,7 @@ public abstract class DashboardTextFieldAbstract<T> extends ActionComponent<T> {
         json.put("min", min);
         json.put("max", max);
         json.put("placeholder", placeholder);
+        json.put("edit_button", editButton);
         return json;
     }
 

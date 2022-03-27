@@ -53,9 +53,8 @@ public class DashboardGrid extends ActionComponent<String> {
         return rows;
     }
 
-    public DashboardGrid setRowButton(String rowButton) {
+    public void setRowButton(String rowButton) {
         this.rowButton = rowButton;
-        return this;
     }
 
     public String getRowButton() {
