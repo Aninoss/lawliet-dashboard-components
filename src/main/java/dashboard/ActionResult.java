@@ -2,12 +2,20 @@ package dashboard;
 
 public class ActionResult {
 
-    private final boolean redraw;
+    private boolean redraw = false;
+    private boolean scrollToTop = false;
     private String errorMessage = null;
     private String successMessage = null;
 
-    public ActionResult(boolean redraw) {
-        this.redraw = redraw;
+    public ActionResult withRedraw() {
+        this.redraw = true;
+        return this;
+    }
+
+    public ActionResult withRedrawScrollToTop() {
+        this.redraw = true;
+        this.scrollToTop = true;
+        return this;
     }
 
     public ActionResult withErrorMessage(String errorMessage) {
@@ -22,6 +30,10 @@ public class ActionResult {
 
     public boolean getRedraw() {
         return redraw;
+    }
+
+    public boolean getScrollToTop() {
+        return scrollToTop;
     }
 
     public String getErrorMessage() {
