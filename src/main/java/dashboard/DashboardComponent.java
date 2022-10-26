@@ -16,6 +16,7 @@ public abstract class DashboardComponent {
     private final int type;
     private final String id;
     private boolean visible = true;
+    private boolean canExpand = true;
     private final HashMap<String, String> cssProperties = new HashMap<>();
     private DashboardContainer parent = null;
 
@@ -28,6 +29,9 @@ public abstract class DashboardComponent {
         type = json.getInt("type");
         id = json.getString("id");
         visible = json.getBoolean("visible");
+        if (json.has("can_expand")) {
+            canExpand = json.getBoolean("can_expand");
+        }
         JSONObject cssJson = json.getJSONObject("css");
         for (String key : cssJson.keySet()) {
             cssProperties.put(key, cssJson.getString(key));
@@ -48,6 +52,14 @@ public abstract class DashboardComponent {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    public boolean canExpand() {
+        return canExpand;
+    }
+
+    public void setCanExpand(boolean canExpand) {
+        this.canExpand = canExpand;
     }
 
     public DashboardContainer getParent() {
@@ -82,6 +94,7 @@ public abstract class DashboardComponent {
         json.put("type", type);
         json.put("id", id);
         json.put("visible", visible);
+        json.put("can_expand", canExpand);
         JSONObject cssJson = new JSONObject();
         cssProperties.forEach(cssJson::put);
         json.put("css", cssJson);
