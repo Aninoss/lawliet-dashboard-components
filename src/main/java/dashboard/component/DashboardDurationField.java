@@ -7,7 +7,7 @@ public class DashboardDurationField extends DashboardTextFieldAbstract<Long> {
 
     public static final int TYPE = 15;
     private long value = 0L;
-    private boolean includeMinutes;
+    private boolean includeMinutes = true;
 
     public DashboardDurationField(String label, DashboardEventListener<Long> actionListener) {
         super(TYPE, label, 0, Integer.MAX_VALUE);
@@ -23,8 +23,6 @@ public class DashboardDurationField extends DashboardTextFieldAbstract<Long> {
         value = json.getLong("value");
         if (json.has("include_minutes")) {
             includeMinutes = json.getBoolean("include_minutes");
-        } else {
-            includeMinutes = true;
         }
     }
 
