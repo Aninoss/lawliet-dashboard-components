@@ -7,7 +7,7 @@ public class DashboardText extends DashboardComponent {
 
     public static final int TYPE = 5;
 
-    public enum Style { DEFAULT, ERROR, SUCCESS }
+    public enum Style { DEFAULT, ERROR, SUCCESS, SECONDARY }
 
     private final String text;
     private Style style = Style.DEFAULT;
