@@ -11,6 +11,7 @@ public class DashboardText extends DashboardComponent {
 
     private final String text;
     private Style style = Style.DEFAULT;
+    private String url;
 
     public DashboardText(String text) {
         super(TYPE);
@@ -21,6 +22,9 @@ public class DashboardText extends DashboardComponent {
         super(json);
         text = json.getString("text");
         style = Style.values()[json.getInt("style")];
+        if (json.has("url")) {
+            url = json.getString("url");
+        }
     }
 
     public String getText() {
@@ -31,9 +35,16 @@ public class DashboardText extends DashboardComponent {
         return style;
     }
 
-    public DashboardText setStyle(Style style) {
+    public void setStyle(Style style) {
         this.style = style;
-        return this;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override
@@ -41,6 +52,7 @@ public class DashboardText extends DashboardComponent {
         JSONObject json = super.toJSON();
         json.put("text", text);
         json.put("style", style.ordinal());
+        json.put("url", url);
         return json;
     }
 
