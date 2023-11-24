@@ -1,15 +1,16 @@
 package dashboard;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 import dashboard.component.*;
-import dashboard.container.HorizontalPusher;
 import dashboard.container.DashboardContainer;
 import dashboard.container.HorizontalContainer;
+import dashboard.container.HorizontalPusher;
 import dashboard.container.VerticalContainer;
 import org.json.JSONObject;
 import util.RandomUtil;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class DashboardComponent {
 
@@ -142,6 +143,9 @@ public abstract class DashboardComponent {
 
             case DashboardNumberField.TYPE:
                 return new DashboardNumberField(json);
+
+            case DashboardFloatingNumberField.TYPE:
+                return new DashboardFloatingNumberField(json);
 
             case DashboardTitle.TYPE:
                 return new DashboardTitle(json);
