@@ -3,7 +3,7 @@ package dashboard.component;
 import dashboard.listener.DashboardEventListener;
 import org.json.JSONObject;
 
-public class DashboardMultiLineTextField extends DashboardTextFieldAbstract<String, Integer> {
+public class DashboardMultiLineTextField extends DashboardTextFieldAbstract<String> {
 
     public static final int TYPE = 11;
     private String value = "";

@@ -3,7 +3,7 @@ package dashboard.component;
 import dashboard.listener.DashboardEventListener;
 import org.json.JSONObject;
 
-public class DashboardNumberField extends DashboardTextFieldAbstract<Long, Long> {
+public class DashboardNumberField extends DashboardTextFieldAbstract<Long> {
 
     public static final int TYPE = 12;
     private long value = 0L;
