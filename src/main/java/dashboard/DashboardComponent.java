@@ -1,10 +1,7 @@
 package dashboard;
 
 import dashboard.component.*;
-import dashboard.container.DashboardContainer;
-import dashboard.container.HorizontalContainer;
-import dashboard.container.HorizontalPusher;
-import dashboard.container.VerticalContainer;
+import dashboard.container.*;
 import org.json.JSONObject;
 import util.RandomUtil;
 
@@ -110,6 +107,9 @@ public abstract class DashboardComponent {
 
             case VerticalContainer.TYPE:
                 return new VerticalContainer(json);
+
+            case ExpandableContainer.TYPE:
+                return new ExpandableContainer(json);
 
             case DashboardButton.TYPE:
                 return new DashboardButton(json);
