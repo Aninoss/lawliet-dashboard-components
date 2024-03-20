@@ -1,18 +1,19 @@
 package dashboard.component;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import dashboard.data.DiscordEntity;
 import dashboard.listener.DashboardEventListener;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class DashboardComboBox extends ActionComponent<String> {
 
     public static final int TYPE = 3;
 
-    public enum DataType { TEXT_CHANNELS, BASE_GUILD_MESSAGE_CHANNELS, VOICE_CHANNELS, MEMBERS, ROLES, CUSTOM }
+    public enum DataType { GUILD_MESSAGE_CHANNELS, STANDARD_GUILD_MESSAGE_CHANNELS, VOICE_CHANNELS, MEMBERS, ROLES, CUSTOM, GUILD_CHANNELS }
 
     private final String label;
     private final DataType dataType;
