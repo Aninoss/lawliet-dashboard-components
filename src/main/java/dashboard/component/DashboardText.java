@@ -7,7 +7,7 @@ public class DashboardText extends DashboardComponent {
 
     public static final int TYPE = 5;
 
-    public enum Style { DEFAULT, ERROR, SUCCESS, WARNING, SECONDARY, BOLD }
+    public enum Style { DEFAULT, ERROR, SUCCESS, WARNING, SECONDARY, BOLD, HINT }
 
     private final String text;
     private Style style = Style.DEFAULT;
@@ -16,6 +16,11 @@ public class DashboardText extends DashboardComponent {
     public DashboardText(String text) {
         super(TYPE);
         this.text = text;
+    }
+
+    public DashboardText(String text, Style style) {
+        this(text);
+        this.style = style;
     }
 
     public DashboardText(JSONObject json) {

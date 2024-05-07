@@ -111,6 +111,9 @@ public abstract class DashboardComponent {
             case ExpandableContainer.TYPE:
                 return new ExpandableContainer(json);
 
+            case DashboardListContainer.TYPE:
+                return new DashboardListContainer(json);
+
             case DashboardButton.TYPE:
                 return new DashboardButton(json);
 

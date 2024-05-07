@@ -7,7 +7,7 @@ public class DashboardButton extends ActionComponent<Void> {
 
     public static final int TYPE = 2;
 
-    public enum Style { PRIMARY, DEFAULT, DANGER, TERTIARY }
+    public enum Style { PRIMARY, DEFAULT, DANGER, TERTIARY, ARROW }
 
     private final String text;
     private Style style = Style.DEFAULT;
