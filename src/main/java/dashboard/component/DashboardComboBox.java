@@ -22,6 +22,7 @@ public class DashboardComboBox extends ActionComponent<String> {
     private final List<DiscordEntity> values;
     private boolean allowCustomValues = false;
     private List<DiscordEntity> selectedValues = Collections.emptyList();
+    private String placeholder = null;
 
     public DashboardComboBox(String label, DataType dataType, boolean canBeEmpty, int max, DashboardEventListener<String> actionListener) {
         this(label, dataType, canBeEmpty, max);
@@ -78,6 +79,10 @@ public class DashboardComboBox extends ActionComponent<String> {
             newSelectedValues.add(DiscordEntity.fromJson(entityJson));
         }
         selectedValues = Collections.unmodifiableList(newSelectedValues);
+
+        if (json.has("placeholder")) {
+            placeholder = json.getString("placeholder");
+        }
     }
 
     public String getLabel() {
@@ -116,6 +121,14 @@ public class DashboardComboBox extends ActionComponent<String> {
         this.allowCustomValues = allowCustomValues;
     }
 
+    public String getPlaceholder() {
+        return placeholder;
+    }
+
+    public void setPlaceholder(String placeholder) {
+        this.placeholder = placeholder;
+    }
+
     public void triggerAdd(String entityId) {
         trigger("add", entityId);
     }
@@ -147,6 +160,7 @@ public class DashboardComboBox extends ActionComponent<String> {
         selectedValues.forEach(discordEntity -> selectedValuesJson.put(discordEntity.toJson()));
         json.put("selected_values", selectedValuesJson);
 
+        json.put("placeholder", placeholder);
         return json;
     }
 
